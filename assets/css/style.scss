@@ -1,0 +1,130 @@
+@import './reset';
+@import './global';
+@import './variable';
+@import './mixin';
+
+.wrapper {
+   margin-top: 100px;
+   .container {
+      .slider-wrapper {
+         position: relative;
+         .line {
+            display: block;
+
+            @include lg {
+               display: block;
+               position: absolute;
+               top: -22px;
+               right: 64px;
+               width: 1px;
+               height: 16px;
+               background-color: #b1b1b1;
+            }
+         }
+         .slider {
+            margin: 0px -7px;
+            .silder__item {
+               margin: 8px;
+               border-radius: 4px;
+               overflow: hidden;
+               box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+               img {
+                  width: 100%;
+                  height: 200px;
+                  object-fit: cover;
+               }
+            }
+            .btn-arrow {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               border: none;
+               outline: none;
+               background-color: #eeeeee;
+               border-radius: 50%;
+               width: 40px;
+               height: 40px;
+               z-index: 5;
+               position: absolute;
+               top: 50%;
+               transform: translateY(-50%);
+               transition: all 0.3s;
+               &:hover {
+                  background-color: #d8d8d8;
+               }
+               @include lg {
+                  align-items: center;
+                  justify-content: center;
+                  transform: translateY(0%);
+                  top: -24px;
+                  border-radius: 0;
+                  width: auto;
+                  height: auto;
+                  background-color: transparent;
+                  color: #585858;
+                  &:hover {
+                     background-color: transparent;
+                  }
+               }
+               .icon-arrow {
+                  font-size: 20px;
+               }
+               .btn-label {
+                  display: none;
+                  @include lg {
+                     display: block;
+                  }
+               }
+            }
+            .slick-prev {
+               left: -48px;
+               @include lg {
+                  left: auto;
+                  right: 90px;
+               }
+            }
+            .slick-next {
+               right: -48px;
+               @include lg {
+                  right: 4px;
+               }
+            }
+            .slick-dots {
+               list-style: none;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               gap: 0 8px;
+               position: absolute;
+               bottom: -20px;
+               left: 50%;
+               transform: translateX(-50%);
+               > li {
+                  > button {
+                     width: 8px;
+                     height: 8px;
+                     border-radius: 50%;
+                     font-size: 0;
+                     background-color: #e4e4e4;
+                     border: none;
+                     outline: none;
+                     transition: all 0.3s linear;
+
+                     &:hover {
+                        background-color: #b1b1b1;
+                     }
+                  }
+               }
+               .slick-active {
+                  > button {
+                     background-color: #c35800;
+                     &:hover {
+                        background-color: #c35800;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
